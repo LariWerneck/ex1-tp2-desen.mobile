@@ -9,9 +9,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.appduastelas.R
-import com.example.appduastelas.model.Produto
+import com.example.appduastelas.model.Livro
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlin.jvm.java
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,38 +23,37 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val edtNomeProduto = findViewById<EditText>(R.id.edt_nome_produto)
-        val edtPrecoProduto = findViewById<EditText>(R.id.edt_preco_produto)
+
+        val edtTituloLivro = findViewById<EditText>(R.id.edt_titulo_livro)
+        val edtAutorLivro = findViewById<EditText>(R.id.edt_autor_livro)
         val btnCadastrar = findViewById<Button>(R.id.btn_cadastrar)
         val fabAvanca = findViewById<FloatingActionButton>(R.id.fab_avanca)
 
-
-        var produto = Produto("Sem Produto", 0.0)
+        var livro = Livro("Sem Título", "Sem Autor")
 
         btnCadastrar.setOnClickListener {
-            val nome = edtNomeProduto.text.toString()
-            val preco = edtPrecoProduto.text.toString().toDouble()
-            produto = Produto(nome, preco)
+            val titulo = edtTituloLivro.text.toString()
+            val autor = edtAutorLivro.text.toString()
+            livro = Livro(titulo, autor)
             alertaSucesso()
-            edtNomeProduto.text.clear()
-            edtPrecoProduto.text.clear()
+            edtTituloLivro.text.clear()
+            edtAutorLivro.text.clear()
         }
 
         fabAvanca.setOnClickListener {
-            val intent = Intent(this, ProdutoActivity::class.java)
-            intent.putExtra("nomeProduto", produto.nomeProduto)
-            intent.putExtra("precoProduto", produto.precoProduto.toString())
+            val intent = Intent(this, LivroActivity::class.java)
+            intent.putExtra("tituloLivro", livro.tituloLivro)
+            intent.putExtra("autorLivro", livro.autorLivro)
             startActivity(intent)
         }
 
     }
+
     fun alertaSucesso(){
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Sucesso!")
-        builder.setMessage("Produto cadastrado com sucesso!")
+        builder.setMessage("Livro cadastrado com sucesso!")
         val alert = builder.create()
         alert.show()
     }
-
-
 }

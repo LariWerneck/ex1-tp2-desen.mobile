@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppDuasTelas">
         <activity
-            android:name=".view.ProdutoActivity"
+            android:name=".view.LivroActivity"
             android:exported="false" />
         <activity
             android:name=".view.MainActivity"

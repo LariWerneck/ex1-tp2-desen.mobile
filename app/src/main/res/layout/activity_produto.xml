@@ -8,26 +8,26 @@
     tools:context=".view.ProdutoActivity">
 
     <TextView
-        android:id="@+id/txv_nome_produto"
+        android:id="@+id/txv_titulo_livro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="260dp"
-        android:text="Nome do Produto:"
+        android:text="Título do livro:"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txv_preco_produto"
+        android:id="@+id/txv_autor_livro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="Preço do Produto:"
+        android:text="Autor do livro:"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txv_nome_produto" />
+        app:layout_constraintTop_toBottomOf="@+id/txv_titulo_livro" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_volta"
